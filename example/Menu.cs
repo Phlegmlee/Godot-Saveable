@@ -7,8 +7,13 @@ public partial class Menu : Control, ISaveable
 {
 	StringName ISaveable.UniqueID => "Menu";
 
-	[Export] private Button SaveButton = null!;
-	[Export] private Button LoadButton = null!;
+	private Button SaveButtonSlot1 = null!;
+	private Button SaveButtonSlot2 = null!;
+	private Button SaveButtonSlot3 = null!;
+
+	private Button LoadButtonSlot1 = null!;
+	private Button LoadButtonSlot2 = null!;
+	private Button LoadButtonSlot3 = null!;
 
 	[Export] private SpinBox fValueSpin = null!;
 	[Export] private SpinBox iValueSpin = null!;
@@ -16,14 +21,25 @@ public partial class Menu : Control, ISaveable
 	private float fValue = 0.0f;
 	private int iValue = 0;
 
-	const string FILE_PATH = "user://saves/example.save";
-
 	#region Lifecycle
 
 	public override void _EnterTree()
 	{
-		SaveButton.Pressed += OnSavePressed;
-		LoadButton.Pressed += OnLoadPressed;
+		SaveButtonSlot1 = GetNode<Button>("%SaveButton");
+		SaveButtonSlot2 = GetNode<Button>("%SaveButton2");
+		SaveButtonSlot3 = GetNode<Button>("%SaveButton3");
+
+		LoadButtonSlot1 = GetNode<Button>("%LoadButton");
+		LoadButtonSlot2 = GetNode<Button>("%LoadButton2");
+		LoadButtonSlot3 = GetNode<Button>("%LoadButton3");
+
+		SaveButtonSlot1.Pressed += () => OnSavePressed(SaveSlotEnum.SlotOne);
+		SaveButtonSlot2.Pressed += () => OnSavePressed(SaveSlotEnum.SlotTwo);
+		SaveButtonSlot3.Pressed += () => OnSavePressed(SaveSlotEnum.SlotThree);
+
+		LoadButtonSlot1.Pressed += () => OnLoadPressed(SaveSlotEnum.SlotOne);
+		LoadButtonSlot2.Pressed += () => OnLoadPressed(SaveSlotEnum.SlotTwo);
+		LoadButtonSlot3.Pressed += () => OnLoadPressed(SaveSlotEnum.SlotThree);
 
 		fValueSpin.ValueChanged += OnFValueChanged;
 		iValueSpin.ValueChanged += OnIValueChanged;
@@ -62,25 +78,25 @@ public partial class Menu : Control, ISaveable
 		iValue = (int)value;
 	}
 
-	private void OnSavePressed()
+	private void OnSavePressed(SaveSlotEnum saveSlot)
 	{
 		TreeSave? save = SaveSystem.LoadFile(
-			FILE_PATH,
+			saveSlot,
 			GetTree().Root,
 			loadTree: false
 		);
 
 		SaveSystem.SaveFile(
-			FILE_PATH,
+			saveSlot,
 			GetTree().Root,
 			save
 		);
 	}
 
-	private void OnLoadPressed()
+	private void OnLoadPressed(SaveSlotEnum saveSlot)
 	{
 		SaveSystem.LoadFile(
-			FILE_PATH,
+			saveSlot,
 			GetTree().Root
 		);
 	}
