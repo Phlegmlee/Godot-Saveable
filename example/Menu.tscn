@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://example/Menu.cs" id="1_owh5w"]
 
-[node name="Menu" type="Control" node_paths=PackedStringArray("SaveButton", "LoadButton", "fValueSpin", "iValueSpin")]
+[node name="Menu" type="Control" node_paths=PackedStringArray("fValueSpin", "iValueSpin")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,8 +10,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_owh5w")
-SaveButton = NodePath("ButtonsVBox/SaveButton")
-LoadButton = NodePath("ButtonsVBox/LoadButton")
 fValueSpin = NodePath("ValuesHBox/ValuesVBox/fValueSpinBox")
 iValueSpin = NodePath("ValuesHBox/ValuesVBox/iValueSpinBox")
 
@@ -62,10 +60,38 @@ offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SaveButton" type="Button" parent="ButtonsVBox"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ButtonsVBox"]
 layout_mode = 2
-text = "Save"
 
-[node name="LoadButton" type="Button" parent="ButtonsVBox"]
+[node name="SaveButton" type="Button" parent="ButtonsVBox/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Load"
+text = "Save Slot 1"
+
+[node name="SaveButton2" type="Button" parent="ButtonsVBox/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Save Slot 2"
+
+[node name="SaveButton3" type="Button" parent="ButtonsVBox/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Save Slot 3"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ButtonsVBox"]
+layout_mode = 2
+
+[node name="LoadButton" type="Button" parent="ButtonsVBox/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load Slot 1"
+
+[node name="LoadButton2" type="Button" parent="ButtonsVBox/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load Slot 2"
+
+[node name="LoadButton3" type="Button" parent="ButtonsVBox/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load Slot 3"

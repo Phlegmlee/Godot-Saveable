@@ -39,6 +39,20 @@ public static class SaveSystem
         return LoadFile(file, root, loadTree);
     }
 
+    /// <summary>
+    /// Loads a save file.
+    /// </summary>
+    /// <param name="saveSlot">The save slot to load.</param>
+    /// <param name="root">A node to search through the tree</param>
+    /// <param name="loadTree">If the tree should be loaded. If false, only the <see cref="NodeSave"/> will be created.</param>
+    /// <return>A <see cref="TreeSave"/>, which contains a collection of <see cref="NodeSave"/></return>
+    public static TreeSave? LoadFile(SaveSlotEnum saveSlot, Node root, bool loadTree = true)
+    {
+        var filePath = SlotManager.GetSaveFile(saveSlot);
+        DirAccess.MakeDirRecursiveAbsolute(filePath.GetBaseDir());
+        FileAccess file = FileAccess.Open(filePath, FileAccess.ModeFlags.Read);
+        return LoadFile(file, root, loadTree);
+    }
 
     /// <summary>
     /// Loads a save file.
@@ -51,6 +65,28 @@ public static class SaveSystem
     /// <seealso cref="FileAccess.CompressionMode"/>
     public static TreeSave? LoadFile(string filePath, Node root, FileAccess.CompressionMode compressionMode, bool loadTree = true)
     {
+        DirAccess.MakeDirRecursiveAbsolute(filePath.GetBaseDir());
+        FileAccess file = FileAccess.OpenCompressed(
+            filePath,
+            FileAccess.ModeFlags.Read,
+            compressionMode
+        );
+
+        return LoadFile(file, root, loadTree);
+    }
+
+    /// <summary>
+    /// Loads a save file.
+    /// </summary>
+    /// <param name="saveSlot">The save slot to load.</param>
+    /// <param name="root">A node to search through the tree</param>
+    /// <param name="compressionMode">The compression mode</param>
+    /// <param name="loadTree">If the tree should be loaded. If false, only the <see cref="NodeSave"/> will be created.</param>
+    /// <return>A <see cref="TreeSave"/>, which contains a collection of <see cref="NodeSave"/></return>
+    /// <seealso cref="FileAccess.CompressionMode"/>
+    public static TreeSave? LoadFile(SaveSlotEnum saveSlot, Node root, FileAccess.CompressionMode compressionMode, bool loadTree = true)
+    {
+        var filePath = SlotManager.GetSaveFile(saveSlot);
         DirAccess.MakeDirRecursiveAbsolute(filePath.GetBaseDir());
         FileAccess file = FileAccess.OpenCompressed(
             filePath,
@@ -84,6 +120,27 @@ public static class SaveSystem
     /// <summary>
     /// Loads a save file.
     /// </summary>
+    /// <param name="saveSlot">The save slot to load.</param>
+    /// <param name="key">A key to decrypt the file</param>
+    /// <param name="root">A node to search through the tree</param>
+    /// <param name="loadTree">If the tree should be loaded. If false, only the <see cref="NodeSave"/> will be created.</param>
+    /// <return>A <see cref="TreeSave"/>, which contains a collection of <see cref="NodeSave"/></return>
+    public static TreeSave? LoadFile(SaveSlotEnum saveSlot, byte[] key, Node root, bool loadTree = true)
+    {
+        var filePath = SlotManager.GetSaveFile(saveSlot);
+        DirAccess.MakeDirRecursiveAbsolute(filePath.GetBaseDir());
+        FileAccess file = FileAccess.OpenEncrypted(
+            filePath,
+            FileAccess.ModeFlags.Read,
+            key
+        );
+
+        return LoadFile(file, root, loadTree);
+    }
+
+    /// <summary>
+    /// Loads a save file.
+    /// </summary>
     /// <param name="filePath">Where the save file is located</param>
     /// <param name="password">Password to decrypt the file</param>
     /// <param name="root">A node to search through the tree</param>
@@ -91,6 +148,27 @@ public static class SaveSystem
     /// <return>A <see cref="TreeSave"/>, which contains a collection of <see cref="NodeSave"/></return>
     public static TreeSave? LoadFile(string filePath, string password, Node root, bool loadTree = true)
     {
+        DirAccess.MakeDirRecursiveAbsolute(filePath.GetBaseDir());
+        FileAccess file = FileAccess.OpenEncryptedWithPass(
+            filePath,
+            FileAccess.ModeFlags.Read,
+            password
+        );
+
+        return LoadFile(file, root, loadTree);
+    }
+
+    /// <summary>
+    /// Loads a save file.
+    /// </summary>
+    /// <param name="saveSlot">The save slot to load.</param>
+    /// <param name="password">Password to decrypt the file</param>
+    /// <param name="root">A node to search through the tree</param>
+    /// <param name="loadTree">If the tree should be loaded. If false, only the <see cref="NodeSave"/> will be created.</param>
+    /// <return>A <see cref="TreeSave"/>, which contains a collection of <see cref="NodeSave"/></return>
+    public static TreeSave? LoadFile(SaveSlotEnum saveSlot, string password, Node root, bool loadTree = true)
+    {
+        var filePath = SlotManager.GetSaveFile(saveSlot);
         DirAccess.MakeDirRecursiveAbsolute(filePath.GetBaseDir());
         FileAccess file = FileAccess.OpenEncryptedWithPass(
             filePath,
@@ -119,6 +197,23 @@ public static class SaveSystem
 
     /// <summary>
     /// Saves a save file.
+    /// </summary>
+    /// <param name="saveSlot">The slot to save to.</param>
+    /// <param name="root">A node to search through the tree</param>
+    /// <param name="treeSave">A <see cref="TreeSave"/> to save</param>
+    public static void SaveFile(
+        SaveSlotEnum saveSlot,
+        Node root,
+        TreeSave? treeSave = null)
+    {
+        var filePath = SlotManager.GetSaveFile(saveSlot);
+        DirAccess.MakeDirRecursiveAbsolute(filePath.GetBaseDir());
+        FileAccess file = FileAccess.Open(filePath, FileAccess.ModeFlags.Write);
+        SaveFile(file, root, treeSave);
+    }
+
+    /// <summary>
+    /// Saves a save file.
     /// <para>NOTE; This will overwrite existing save file, if tree save is null.</para>
     /// </summary>
     /// <param name="filePath">Where to save the file to</param>
@@ -131,6 +226,31 @@ public static class SaveSystem
         FileAccess.CompressionMode compressionMode,
         TreeSave? treeSave = null)
     {
+        DirAccess.MakeDirRecursiveAbsolute(filePath.GetBaseDir());
+        FileAccess file = FileAccess.OpenCompressed(
+            filePath,
+            FileAccess.ModeFlags.Write,
+            compressionMode
+        );
+
+        SaveFile(file, root, treeSave);
+    }
+
+    /// <summary>
+    /// Saves a save file.
+    /// <para>NOTE; This will overwrite existing save file, if tree save is null.</para>
+    /// </summary>
+    /// <param name="saveSlot">The slot to save to.</param>
+    /// <param name="root">A node to search through the tree</param>
+    /// <param name="compressionMode">The compression mode</param>
+    /// <param name="treeSave">A <see cref="TreeSave"/> to save</param>
+    public static void SaveFile(
+        SaveSlotEnum saveSlot,
+        Node root,
+        FileAccess.CompressionMode compressionMode,
+        TreeSave? treeSave = null)
+    {
+        var filePath = SlotManager.GetSaveFile(saveSlot);
         DirAccess.MakeDirRecursiveAbsolute(filePath.GetBaseDir());
         FileAccess file = FileAccess.OpenCompressed(
             filePath,
@@ -167,6 +287,30 @@ public static class SaveSystem
     /// <summary>
     /// Saves a save file.
     /// </summary>
+    /// <param name="saveSlot">The slot to save to.</param>
+    /// <param name="key">A key to decrypt the file</param>
+    /// <param name="root">A node to search through the tree</param>
+    /// <param name="treeSave">A <see cref="TreeSave"/> to save</param>
+    public static void SaveFile(
+        SaveSlotEnum saveSlot,
+        byte[] key,
+        Node root,
+        TreeSave? treeSave = null)
+    {
+        var filePath = SlotManager.GetSaveFile(saveSlot);
+        DirAccess.MakeDirRecursiveAbsolute(filePath.GetBaseDir());
+        FileAccess file = FileAccess.OpenEncrypted(
+            filePath,
+            FileAccess.ModeFlags.Write,
+            key
+        );
+
+        SaveFile(file, root, treeSave);
+    }
+
+    /// <summary>
+    /// Saves a save file.
+    /// </summary>
     /// <param name="filePath">Where to save the file to</param>
     /// <param name="password">Password to encrypt the file</param>
     /// <param name="root">A node to search through the tree</param>
@@ -177,6 +321,30 @@ public static class SaveSystem
         Node root,
         TreeSave? treeSave = null)
     {
+        DirAccess.MakeDirRecursiveAbsolute(filePath.GetBaseDir());
+        FileAccess file = FileAccess.OpenEncryptedWithPass(
+            filePath,
+            FileAccess.ModeFlags.Write,
+            password
+        );
+
+        SaveFile(file, root, treeSave);
+    }
+
+    /// <summary>
+    /// Saves a save file.
+    /// </summary>
+    /// <param name="saveSlot">The slot to save to.</param>
+    /// <param name="password">Password to encrypt the file</param>
+    /// <param name="root">A node to search through the tree</param>
+    /// <param name="treeSave">A <see cref="TreeSave"/> to save</param>
+    public static void SaveFile(
+        SaveSlotEnum saveSlot,
+        string password,
+        Node root,
+        TreeSave? treeSave = null)
+    {
+        var filePath = SlotManager.GetSaveFile(saveSlot);
         DirAccess.MakeDirRecursiveAbsolute(filePath.GetBaseDir());
         FileAccess file = FileAccess.OpenEncryptedWithPass(
             filePath,
