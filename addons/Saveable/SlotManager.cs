@@ -1,9 +1,28 @@
+using Godot;
 
 namespace Saveable;
 
 internal static class SlotManager
 {
-	// TODO: method to check if save files exist
+	/// <summary>
+	/// Check if a save file exists.
+	/// </summary>
+	/// <param name="saveSlot">The save slot to check.</param>
+	/// <returns>True if file exists, false otherwise.</returns>
+	public static bool IsSavePresent(SaveSlotEnum saveSlot)
+	{
+		return FileAccess.FileExists(GetSaveFile(saveSlot));
+	}
+
+	/// <summary>
+	/// Check if a save file exists.
+	/// </summary>
+	/// <param name="filePath">The file path to check.</param>
+	/// <returns>True if file exists, false otherwise.</returns>
+	public static bool IsSavePresent(string filePath)
+	{
+		return FileAccess.FileExists(filePath);
+	}
 
 	// TODO: method to get file info
 
