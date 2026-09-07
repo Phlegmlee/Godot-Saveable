@@ -35,14 +35,14 @@ Or, you can install via [Nuget](https://www.nuget.org) [package manager](https:/
 
 ## ⚒️ Installation
 
-You can install from the <a href="https://godotengine.org/asset-library/asset/2955">Godot asset library</a>.
-Or you can install from the <a href="https://github.com/MrRobinOfficial/Godot-Saveable/releases/latest">release section</a>.
+You can install from the <a href="//TODO: Fill this out.">Godot Asset Store</a>.
+Or you can install from the <a href="https://github.com/Phlegmlee/Godot-Saveable/releases">release section</a>.
 
 Alternatively, you can install this plugin via terminal with [*git*](https://git-scm.com/). **Here is the command for installing it**.
 
 ```console
 cd addons
-git clone git@github.com:MrRobinOfficial/Godot-Saveable.git Saveable
+git clone git@github.com:Phlegmlee/Godot-Saveable.git Saveable
 ```
 
 ## 📦 Converters
@@ -195,6 +195,29 @@ Output:
     },
   }
 }
+```
+
+#
+
+Load and Save methods have signatures to use `SaveSlotEnum` or a string directly.
+
+All examples below will show only `FILE_PATH` usage, but, this is interchangable with `SaveSlotEnum`.
+
+```csharp
+// Loads file using slots.
+SaveSystem.LoadFile(
+    SaveSlotEnum.SlotOne,
+    GetTree().Root
+);
+
+// Or load a file using string directly.
+
+private string FILE_PATH = "user://saves/profile_01/save.dat";
+
+SaveSystem.LoadFile(
+    FILE_PATH,
+    GetTree().Root
+);
 ```
 
 #
