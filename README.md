@@ -35,15 +35,10 @@ Or, you can install via [Nuget](https://www.nuget.org) [package manager](https:/
 
 ## ⚒️ Installation
 
-You can install from the <a href="//TODO: Fill this out.">Godot Asset Store</a>.
+You can install from the <a href="https://store.godotengine.org/asset/phlegm/saveable/">Godot Asset Store</a>.
+
 Or you can install from the <a href="https://github.com/Phlegmlee/Godot-Saveable/releases">release section</a>.
 
-Alternatively, you can install this plugin via terminal with [*git*](https://git-scm.com/). **Here is the command for installing it**.
-
-```console
-cd addons
-git clone git@github.com:Phlegmlee/Godot-Saveable.git Saveable
-```
 
 ## 📦 Converters
 
