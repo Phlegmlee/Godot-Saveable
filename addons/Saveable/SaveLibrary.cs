@@ -1,6 +1,9 @@
 
 namespace Saveable;
 
+/// <summary>
+/// Available save slots.
+/// </summary>
 public enum SaveSlotEnum
 {
 	Autosave,
@@ -9,6 +12,9 @@ public enum SaveSlotEnum
 	SlotThree
 }
 
+/// <summary>
+/// Save file paths.
+/// </summary>
 internal struct SaveFiles
 {
 	internal const string AutosaveFile = "user://saves/GameName_Auto.save";
