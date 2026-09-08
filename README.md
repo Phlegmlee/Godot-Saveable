@@ -1,6 +1,6 @@
 <!-- markdownlint-disable-next-line -->
 <p align="center">
-  <a href="#" rel="noopener" target="_blank"><img width="350" src="Saveable.svg" alt="Icon"></a>
+  <a href="#" rel="noopener" target="_blank"><img width="750" src="Saveable.png" alt="Icon"></a>
 </p>
 
 <div align="center">
