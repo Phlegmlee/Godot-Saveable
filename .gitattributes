@@ -5,3 +5,7 @@
 /**        export-ignore
 /addons    !export-ignore
 /addons/** !export-ignore
+
+# Also include the example folder
+/example !export-ignore
+/example/** !export-ignore
