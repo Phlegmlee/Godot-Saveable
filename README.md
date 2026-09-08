@@ -6,10 +6,14 @@
 <div align="center">
 
 *A save system for Godot C#*
-  
+
+*Forked from [Mr. Robin](https://github.com/MrRobinOfficial).*
+
+*Updated and maintained by [Phlegmlee](#note)*
+
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mrrobinofficial/unreal-iniparser/blob/HEAD/LICENSE.txt)
 ![plugin-status](https://img.shields.io/badge/plugin_status-ready_to_use-green)
-![maintenance-status](https://img.shields.io/badge/maintenance-passively--maintained-yellowgreen.svg)
+![maintenance-status](https://img.shields.io/badge/maintenance-maintained-green.svg)
 
 </div>
 
@@ -396,3 +400,12 @@ If you have any questions or issue, just write either to my [YouTube channel](ht
 - [Vector3I](https://docs.godotengine.org/en/stable/classes/class_vector3i.html)
 - [Vector4](https://docs.godotengine.org/en/stable/classes/class_vector4.html)
 - [Vector4I](https://docs.godotengine.org/en/stable/classes/class_vector4i.html)
+
+### NOTE: 
+This repository was originally created by [Mr. Robin](https://github.com/MrRobinOfficial) in 2024. 
+
+It has been forked for fixes, updates, and, to be re-added to the asset store. 
+
+This project will be actively maintained and features added, save slot support for example. 
+
+**Still MIT, still free, still open to contributions!**
