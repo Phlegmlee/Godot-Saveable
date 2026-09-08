@@ -23,6 +23,7 @@
 - Uses `Newtonsoft.Json` for serialization and deserialization.
 - Supports both encrypted, compressed and regular mode.
 - `ISaveable` interface to allow modular save/load structures.
+- Preset save slot files and support for saving and loading to/from slots.
 
 ## ⚙️ Requirements
 
