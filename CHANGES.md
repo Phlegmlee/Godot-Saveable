@@ -4,6 +4,13 @@ All notable changes to **Godot-Saveable** will be documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.2] - 2026-09-08
+### Fixed
+- Example folder name `example` was too generic, changed to prevent naming conflicts. See [#8](https://github.com/Phlegmlee/Godot-Saveable/pull/8).
+
+### Added
+- Version info was missing due to the removal of the `plugin.cfg` file. A current version header has been added to the `README` within the addons folder. Users can now see what version they have installed.
+
 ## [1.2.1] - 2026-09-08
 ### Added
 - Example folder added to `.gitattributes`. Downloads of the add-on now include the example for optional addition to the users project.
