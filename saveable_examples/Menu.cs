@@ -17,9 +17,11 @@ public partial class Menu : Control, ISaveable
 
 	[Export] private SpinBox fValueSpin = null!;
 	[Export] private SpinBox iValueSpin = null!;
+	[Export] private TextEdit textEdit = null!;
 
 	private float fValue = 0.0f;
 	private int iValue = 0;
+	private string? sValue = null;
 
 	#region Lifecycle
 
@@ -43,6 +45,7 @@ public partial class Menu : Control, ISaveable
 
 		fValueSpin.ValueChanged += OnFValueChanged;
 		iValueSpin.ValueChanged += OnIValueChanged;
+		textEdit.TextChanged += OnTextValueChanged;
 	}
 
 	#endregion
@@ -53,15 +56,18 @@ public partial class Menu : Control, ISaveable
 	{
 		fValue = save.GetProperty<float>(nameof(fValue));
 		iValue = save.GetProperty<int>(nameof(iValue));
+		sValue = save.GetProperty<string>(nameof(sValue));
 
 		fValueSpin.Value = fValue;
 		iValueSpin.Value = iValue;
+		textEdit.Text = sValue;
 	}
 
 	void ISaveable.Save(NodeSave save)
 	{
 		save.AddProperty(nameof(fValue), fValue);
 		save.AddProperty(nameof(iValue), iValue);
+		save.AddProperty(nameof(sValue), sValue);
 	}
 
 	#endregion
@@ -76,6 +82,11 @@ public partial class Menu : Control, ISaveable
 	private void OnIValueChanged(double value)
 	{
 		iValue = (int)value;
+	}
+
+	private void OnTextValueChanged()
+	{
+		sValue = textEdit.Text;
 	}
 
 	private void OnSavePressed(SaveSlotEnum saveSlot)

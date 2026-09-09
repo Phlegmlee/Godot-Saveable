@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://saveable_examples/Menu.cs" id="1_owh5w"]
 
-[node name="Menu" type="Control" node_paths=PackedStringArray("fValueSpin", "iValueSpin")]
+[node name="Menu" type="Control" node_paths=PackedStringArray("fValueSpin", "iValueSpin", "textEdit")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_owh5w")
 fValueSpin = NodePath("ValuesHBox/ValuesVBox/fValueSpinBox")
 iValueSpin = NodePath("ValuesHBox/ValuesVBox/iValueSpinBox")
+textEdit = NodePath("MarginContainer/TextEdit")
 
 [node name="ValuesHBox" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -95,3 +96,17 @@ text = "Load Slot 2"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Load Slot 3"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -902.0
+offset_bottom = -398.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextEdit" type="TextEdit" parent="MarginContainer"]
+layout_mode = 2
+placeholder_text = "Enter text here."
