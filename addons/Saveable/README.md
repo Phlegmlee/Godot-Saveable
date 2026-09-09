@@ -1,7 +1,8 @@
-<!-- markdownlint-disable-next-line -->
-<p align="center">
-  <a href="#" rel="noopener" target="_blank"><img width="150" src="Icon.png" alt="Icon"></a>
-</p>
+
+<h1 align="center">
+   Current version:
+  <a href="https://github.com/Phlegmlee/Godot-Saveable/releases" rel="noopener" target="_blank">1.2.1</a>
+</h1>
 
 <div align="center">
 
