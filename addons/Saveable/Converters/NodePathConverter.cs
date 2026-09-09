@@ -19,7 +19,7 @@ public class NodePathConverter : JsonConverter<NodePath>
 
         reader.Read(); // Read end object
 
-        return new NodePath(path);
+        return path != null ? new(path) : null;
     }
 
     public override void WriteJson(JsonWriter writer, NodePath? value, JsonSerializer serializer)
