@@ -1,7 +1,7 @@
 
 <h1 align="center">
    Current version:
-  <a href="https://github.com/Phlegmlee/Godot-Saveable/releases" rel="noopener" target="_blank">1.2.2</a>
+  <a href="https://github.com/Phlegmlee/Godot-Saveable/releases" rel="noopener" target="_blank">1.3.2</a>
 </h1>
 
 <div align="center">
