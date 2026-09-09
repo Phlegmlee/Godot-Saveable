@@ -7,5 +7,5 @@
 /addons/** !export-ignore
 
 # Also include the example folder
-/example !export-ignore
-/example/** !export-ignore
+/saveable_examples !export-ignore
+/saveable_examples/** !export-ignore
