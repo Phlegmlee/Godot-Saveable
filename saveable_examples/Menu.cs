@@ -22,6 +22,7 @@ public partial class Menu : Control, ISaveable
 	private float fValue = 0.0f;
 	private int iValue = 0;
 	private string? sValue = null;
+	private NodePath? nodePath = null;
 
 	#region Lifecycle
 
@@ -46,6 +47,8 @@ public partial class Menu : Control, ISaveable
 		fValueSpin.ValueChanged += OnFValueChanged;
 		iValueSpin.ValueChanged += OnIValueChanged;
 		textEdit.TextChanged += OnTextValueChanged;
+
+		nodePath = new("ValuesHBox/LabelsVBox/iValue");
 	}
 
 	#endregion
@@ -57,6 +60,7 @@ public partial class Menu : Control, ISaveable
 		fValue = save.GetProperty<float>(nameof(fValue));
 		iValue = save.GetProperty<int>(nameof(iValue));
 		sValue = save.GetProperty<string>(nameof(sValue));
+		nodePath = save.GetProperty<NodePath>(nameof(nodePath));
 
 		fValueSpin.Value = fValue;
 		iValueSpin.Value = iValue;
@@ -68,6 +72,7 @@ public partial class Menu : Control, ISaveable
 		save.AddProperty(nameof(fValue), fValue);
 		save.AddProperty(nameof(iValue), iValue);
 		save.AddProperty(nameof(sValue), sValue);
+		save.AddProperty(nameof(nodePath), nodePath);
 	}
 
 	#endregion
