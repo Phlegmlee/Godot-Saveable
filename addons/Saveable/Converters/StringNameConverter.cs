@@ -11,8 +11,7 @@ public class StringNameConverter : JsonConverter<StringName>
         if (reader.TokenType != JsonToken.String)
             throw new JsonSerializationException();
 
-        string? str = reader.Value as string;
-        return new StringName(str);
+        return reader.Value is string str ? new StringName(str) : null;
     }
 
     public override void WriteJson(JsonWriter writer, StringName? value, JsonSerializer serializer)
