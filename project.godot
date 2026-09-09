@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="Godot-Saveable"
-run/main_scene="res://example/Menu.tscn"
+run/main_scene="res://saveable_examples/Menu.tscn"
 config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
+config/icon="res://Saveable.png"
 
 [dotnet]
 

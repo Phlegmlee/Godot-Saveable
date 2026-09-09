@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ctjuneuriprmu"]
 
-[ext_resource type="Script" path="res://example/Menu.cs" id="1_owh5w"]
+[ext_resource type="Script" path="res://saveable_examples/Menu.cs" id="1_owh5w"]
 
 [node name="Menu" type="Control" node_paths=PackedStringArray("fValueSpin", "iValueSpin")]
 layout_mode = 3
