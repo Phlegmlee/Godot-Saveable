@@ -1,11 +1,11 @@
 using Godot;
 using Saveable;
 
-namespace Example;
+namespace SaveableExamples;
 
 public partial class Menu : Control, ISaveable
 {
-	StringName ISaveable.UniqueID => "Menu";
+	StringName ISaveable.UniqueID => Name;
 
 	private Button SaveButtonSlot1 = null!;
 	private Button SaveButtonSlot2 = null!;

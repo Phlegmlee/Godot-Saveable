@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://ctjuneuriprmu"]
+[gd_scene load_steps=5 format=3 uid="uid://ctjuneuriprmu"]
 
 [ext_resource type="Script" path="res://saveable_examples/Menu.cs" id="1_owh5w"]
+[ext_resource type="Script" path="res://saveable_examples/PlayerEntity.cs" id="2_one53"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_v5c68"]
+radius = 10.0
+height = 30.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jpte5"]
 
 [node name="Menu" type="Control" node_paths=PackedStringArray("fValueSpin", "iValueSpin", "textEdit")]
 layout_mode = 3
@@ -110,3 +117,13 @@ grow_vertical = 2
 [node name="TextEdit" type="TextEdit" parent="MarginContainer"]
 layout_mode = 2
 placeholder_text = "Enter text here."
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(500, 500)
+script = ExtResource("2_one53")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="CharacterBody2D"]
+mesh = SubResource("CapsuleMesh_v5c68")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_jpte5")
