@@ -368,9 +368,6 @@ public partial class SaveMenu : CanvasLayer
 }
 ```
 
-## 🆘 Support
-If you have any questions or issue, just write either to my [YouTube channel](https://www.youtube.com/@mrrobinofficial), [Email](mailto:mrrobin123mail@gmail.com) or [Twitter DM](https://twitter.com/MrRobinOfficial).
-
 ## 🔗 References
 - [Installing plugins](https://docs.godotengine.org/en/stable/tutorials/plugins/editor/installing_plugins.html)
 - [Introduction to JSON file format](https://en.wikipedia.org/wiki/JSON)

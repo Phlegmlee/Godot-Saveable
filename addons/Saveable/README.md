@@ -7,10 +7,14 @@
 <div align="center">
 
 *A save system for Godot C#*
+
+*Forked from [Mr. Robin](https://github.com/MrRobinOfficial).*
+
+*Updated and maintained by [Phlegmlee](#note)*
   
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/mrrobinofficial/unreal-iniparser/blob/HEAD/LICENSE.txt)
 ![plugin-status](https://img.shields.io/badge/plugin_status-ready_to_use-green)
-![maintenance-status](https://img.shields.io/badge/maintenance-passively--maintained-yellowgreen.svg)
+![maintenance-status](https://img.shields.io/badge/maintenance-maintained-green.svg)
 
 </div>
 
@@ -20,31 +24,6 @@
 - Uses `Newtonsoft.Json` for serialization and deserialization.
 - Supports both encrypted, compressed and regular mode.
 - `ISaveable` interface to allow modular save/load structures.
-
-## ⚙️ Requirements
-
-* Godot 4.2.x Mono Version.
-* Installed [Newtonsoft.Json](https://www.newtonsoft.com/json) package.
-
-You can install **Newtonsoft.Json** via this command:
-
-```console
-dotnet add package Newtonsoft.Json
-```
-
-Or, you can install via [Nuget](https://www.nuget.org) [package manager](https://learn.microsoft.com/en-us/nuget/consume-packages/install-use-packages-visual-studio).
-
-## ⚒️ Installation
-
-You can install from the <a href="//TODO: Fill this out.">Godot Asset Store</a>.
-Or you can install from the <a href="https://github.com/Phlegmlee/Godot-Saveable/releases">release section</a>.
-
-Alternatively, you can install this plugin via terminal with [*git*](https://git-scm.com/). **Here is the command for installing it**.
-
-```console
-cd addons
-git clone git@github.com:Phlegmlee/Godot-Saveable.git Saveable
-```
 
 ## 📦 Converters
 
@@ -369,9 +348,6 @@ public partial class SaveMenu : CanvasLayer
 }
 ```
 
-## 🆘 Support
-If you have any questions or issue, just write either to my [YouTube channel](https://www.youtube.com/@mrrobinofficial), [Email](mailto:mrrobin123mail@gmail.com) or [Twitter DM](https://twitter.com/MrRobinOfficial).
-
 ## 🔗 References
 - [Installing plugins](https://docs.godotengine.org/en/stable/tutorials/plugins/editor/installing_plugins.html)
 - [Introduction to JSON file format](https://en.wikipedia.org/wiki/JSON)
@@ -402,3 +378,12 @@ If you have any questions or issue, just write either to my [YouTube channel](ht
 - [Vector3I](https://docs.godotengine.org/en/stable/classes/class_vector3i.html)
 - [Vector4](https://docs.godotengine.org/en/stable/classes/class_vector4.html)
 - [Vector4I](https://docs.godotengine.org/en/stable/classes/class_vector4i.html)
+
+### NOTE: 
+This repository was originally created by [Mr. Robin](https://github.com/MrRobinOfficial) in 2024. 
+
+It has been forked for fixes, updates, and, to be re-added to the asset store. 
+
+This project will be actively maintained and features added, save slot support for example. 
+
+**Still MIT, still free, still open to contributions!**
